@@ -15,12 +15,29 @@ class _HomePageState extends State<HomePage> {
             body: Container(
       padding: const EdgeInsets.all(16),
       child: Column(
-        children: [_buildSearchwidget()],
+        children: [_buildSearchWidget()],
       ),
     )));
   }
 
-  Widget _buildSearchwidget() {
-    return SearchBar();
+  Widget _buildSearchWidget() {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextField(
+        decoration: InputDecoration(
+          hintText: "Search any location",
+          prefixIcon: Icon(Icons.search),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(12.0)),
+          ),
+        ),
+        onSubmitted: (value) {
+          _getWeatherData(value); // Handle the search query here
+        },
+      ),
+    );
+  }
+  _getWeatherData(String location)async {
+
   }
 }
