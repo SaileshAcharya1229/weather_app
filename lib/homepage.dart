@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/api.dart';
+import 'package:weather_app/weathermodel.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -37,7 +39,9 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-  _getWeatherData(String location)async {
 
+  _getWeatherData(String location) async {
+    ApiResponse response = WeatherApi().getCurrentWeather(location);
+    print(response.toJson());
   }
 }
