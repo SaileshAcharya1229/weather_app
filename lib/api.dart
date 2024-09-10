@@ -8,7 +8,7 @@ class WeatherApi {
   final String baseUrl = "http://api.weatherapi.com/v1/current.json";
 
   // ignore: non_constant_identifier_names
-  Future<ApiResponse>(String location) async {
+  Future<ApiResponse> getCurrentWeather(String location) async {
     String apiUrl = "$baseUrl?key=$apikey&q=$location";
     try {
       final response = await http.get(Uri.parse(apiUrl));
